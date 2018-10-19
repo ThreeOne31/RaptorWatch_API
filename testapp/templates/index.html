@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Species Classification</h1>
+	<form action="/new_user" method="post">
+		{% csrf_token %}
+		<input type="text" name="First_name">
+		<button type="sumbit">submit</button>
+	</form>
+ 	<div>
+		<label for="avatar">Profile picture:</label>
+		<input type="file"
+		       id="avatar" name="avatar"
+		       accept="image/png, image/jpeg" />
+    	</div>
+</body>
+</html>
