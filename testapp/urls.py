@@ -5,8 +5,8 @@ from .views import homePageView
 from . import views
 
 urlpatterns = [
-    #path('', homePageView, name='home'),
+    path('', homePageView, name='home'),
     #url(r'^$', views.index),
-    url(r'^$', views.simple_upload)
+    url(r'identify/$', views.simple_upload, name='identify')
 
 ]

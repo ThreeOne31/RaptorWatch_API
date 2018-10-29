@@ -20,15 +20,13 @@ birds_classes = {1:"Black footed Albatross", 2:"Yellow breasted Chat", 3:"Red le
 # Create your views here.
 def homePageView(request):
     #return HttpResponse('Hello, World!')
-	return render(request, 'home.html')
+	return render(request, 'index.html')
 
 #views get the uploaded image
 def simple_upload(request):
 	if request.method == 'POST' and request.FILES['myfile']:	#myfile name in forms.html
 		myfile = request.FILES['myfile']
 		
-		
-	
 		fs = FileSystemStorage()
 		filename = fs.save(myfile.name, myfile)					#get saved file name
 		#uploaded_file_url = fs.url(filename)
@@ -37,9 +35,12 @@ def simple_upload(request):
 		img_array = img_to_array(image_data).flatten()			#flatten in 1XD vector
 		img_reshaped=img_array.reshape(1,-1)					#reshape fo fit predict
 		prediction_results = clf.predict(img_reshaped)
+		prediction_results = birds_classes[prediction_results[0]]
+
+		filename = fs.delete(myfile)	
 		
-		#return render(request, 'forms.html', {'uploaded_file_url': uploaded_file_url})
-		return HttpResponse(birds_classes[prediction_results[0]])
+		return render(request, 'forms.html', {'results':prediction_results})
+		#return HttpResponse(birds_classes[prediction_results[0]])
 		
 		
 	return render(request, 'forms.html')
