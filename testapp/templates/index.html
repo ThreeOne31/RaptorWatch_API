@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Website</title>
+	<title>Raptor Watch</title>
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
-<body class ="home">
+<body id="body" class ="home">
 	{% csrf_token %}
 	<header id="main-header">
 		<div class="container">
-			<h1>My Website</h1>
+			<h1>Raptor Watch</h1>
 		</div>
 	</header>
 
@@ -18,7 +18,7 @@
 			<ul>
 				<li><a href="{% url 'home' %}">Home</a></li>
 				<li><a href="#">About</a></li>
-				<li><a href="{% url 'identify' %}">Services</a></li>
+				<li><a href="{% url 'identify' %}">ID Bird</a></li>
 				<li><a href="#">Contact</a></li>
 			</ul>
 		</div>
@@ -31,7 +31,8 @@
 		</div>
 	</section>
 
-	<div class="container">
+	<div  class="container">
+		
 		<section id="main">
 			<h1>Welcome</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -49,7 +50,7 @@
 	</div>
 
 	<footer id="main-footer">
-		<p>Copyright &copy; 2017 My Website</p>
+		<p>Copyright &copy; 2018 Raptor Watch</p>
 	</footer>
 </body>
 </html>

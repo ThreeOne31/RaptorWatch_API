@@ -3,15 +3,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Website</title>
+<style>
+div.transbox {
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+
+</style>
+	<title>Raptor Watch</title>
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
-<body class ="services">
+<body id="body" class ="idbird">
 	{% csrf_token %}
 	<header id="main-header">
 		<div class="container">
-			<h1>My Website</h1>
+			<h1>Raptor Watch</h1>
 		</div>
 	</header>
 
@@ -29,12 +40,14 @@
 	<section id="showcase">
 		<div class="container">
 			<h1>Species Classification</h1>
+			<div class="transbox">
 				<form method="post" enctype="multipart/form-data">
 					{% csrf_token %} 
 					<input type="file" name="myfile">
 					<button type="submit">Upload</button>
   				</form>
 			<h2>{{results}}</h2>
+			</div>
 		</div>
 	</section>
 
@@ -56,7 +69,7 @@
 	</div>
 
 	<footer id="main-footer">
-		<p>Copyright &copy; 2017 My Website</p>
+		<p>Copyright &copy; 2018 Raptor Watch</p>
 	</footer>
 </body>
 </html>
